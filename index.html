@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Técnicos UY · Soporte IT, Microsoft 365 y ciberseguridad remota</title>
+<meta name="description" content="Soporte técnico, Microsoft 365, ciberseguridad y automatización para pymes de Uruguay y LATAM. Gestionado en remoto por un especialista con 14 años en multinacionales como Intel y SAP.">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Juan Rodríguez">
+<meta name="keywords" content="soporte técnico Uruguay, Microsoft 365 Uruguay, ciberseguridad pymes, automatización IT, soporte IT remoto LATAM, consultor Microsoft 365, Entra ID, Intune, Defender XDR">
+<link rel="canonical" href="https://tecnicosuy.com.uy/">
+<meta name="theme-color" content="#08131A">
+<meta property="og:title" content="Técnicos UY · Tecnología enterprise para tu empresa, en remoto">
+<meta property="og:description" content="Microsoft 365, ciberseguridad y automatización por un especialista con 14 años en multinacionales como Intel y SAP. Soporte remoto para pymes de Uruguay y LATAM.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tecnicosuy.com.uy/">
+<meta property="og:locale" content="es_UY">
+<meta property="og:site_name" content="Técnicos UY">
+<meta property="og:image" content="https://tecnicosuy.com.uy/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Técnicos UY · Soporte IT y ciberseguridad en remoto">
+<meta name="twitter:description" content="Microsoft 365, ciberseguridad y automatización para pymes de Uruguay y LATAM.">
+<meta name="twitter:image" content="https://tecnicosuy.com.uy/og-image.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='7' fill='%23F4B740'/%3E%3Cg stroke='%2345C7E0' stroke-width='2' stroke-linecap='round'%3E%3Cline x1='20' y1='3' x2='20' y2='9'/%3E%3Cline x1='20' y1='31' x2='20' y2='37'/%3E%3Cline x1='3' y1='20' x2='9' y2='20'/%3E%3Cline x1='31' y1='20' x2='37' y2='20'/%3E%3Cline x1='8' y1='8' x2='12' y2='12'/%3E%3Cline x1='28' y1='28' x2='32' y2='32'/%3E%3Cline x1='32' y1='8' x2='28' y2='12'/%3E%3Cline x1='12' y1='28' x2='8' y2='32'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#08131A;            /* deep teal ink */
+  --bg-2:#0A1822;
+  --surface:#0F212C;
+  --surface-2:#143040;
+  --line:#1C3744;
+  --line-soft:#152A35;
+  --text:#EAF3F4;
+  --mute:#8FA9B1;
+  --faint:#5E7B85;
+  --celeste:#45C7E0;       /* Uruguay sky — primary accent */
+  --celeste-deep:#1E97B5;
+  --sol:#F4B740;           /* sol de mayo — used sparingly */
+  --ok:#46D9A0;
+  --r:16px;
+  --shadow:0 30px 70px -30px rgba(0,0,0,.75);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:'Sora',system-ui,sans-serif;line-height:1.08;letter-spacing:-.02em;margin:0;font-weight:600}
+a{color:inherit;text-decoration:none}
+.mono{font-family:'JetBrains Mono',monospace}
+.celeste{color:var(--celeste)}
+
+/* ── sol mark ── */
+.sol{width:30px;height:30px;flex:none;display:block}
+
+/* ── nav ── */
+nav{position:sticky;top:0;z-index:50;background:rgba(8,19,26,.78);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-soft)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{display:flex;align-items:center;gap:11px;font-family:'Sora';font-weight:600;font-size:1.05rem}
+.logo b{font-weight:600}
+.logo .uy{color:var(--celeste)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{color:var(--mute);font-size:.92rem;font-weight:500;transition:.15s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{font-family:'Inter';font-weight:600;font-size:.9rem;padding:10px 18px;border-radius:10px;background:var(--celeste);color:#04121a;transition:.15s}
+.nav-cta:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:9px;color:var(--text);padding:8px 11px;cursor:pointer;font-size:1.1rem}
+
+/* ── hero ── */
+.hero{position:relative;padding:96px 0 72px;overflow:hidden}
+.sunburst{position:absolute;top:-280px;right:-180px;width:760px;height:760px;pointer-events:none;opacity:.5;z-index:0}
+.hero .wrap{position:relative;z-index:1}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--celeste);display:inline-flex;align-items:center;gap:11px;margin-bottom:24px}
+.eyebrow::before{content:"";width:30px;height:1px;background:var(--celeste)}
+.hero h1{font-size:clamp(2.3rem,5.6vw,4rem);max-width:17ch;font-weight:600}
+.hero h1 .g{background:linear-gradient(100deg,var(--celeste),var(--sol));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{font-size:1.13rem;color:var(--mute);max-width:56ch;margin:26px 0 0}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.btn{font-family:'Inter';font-weight:600;font-size:1rem;border-radius:12px;padding:14px 24px;cursor:pointer;border:1px solid transparent;transition:.17s;display:inline-flex;align-items:center;gap:10px}
+.btn-primary{background:var(--celeste);color:#04121a;box-shadow:0 14px 30px -16px rgba(69,199,224,.65)}
+.btn-primary:hover{transform:translateY(-2px);filter:brightness(1.07)}
+.btn-ghost{background:transparent;border-color:var(--line);color:var(--text)}
+.btn-ghost:hover{border-color:var(--celeste);color:var(--celeste)}
+
+.trust{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;margin-top:48px;padding-top:26px;border-top:1px solid var(--line-soft)}
+.trust .lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-right:6px}
+.trust .item{font-family:'Sora';font-weight:500;font-size:.96rem;color:var(--mute)}
+.trust .dot{color:var(--line);}
+
+/* ── section frame ── */
+section.block{padding:80px 0;position:relative}
+.sec-head{margin-bottom:46px;max-width:60ch}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--celeste);margin-bottom:14px}
+.sec-head h2{font-size:clamp(1.7rem,3.6vw,2.5rem)}
+.sec-head p{color:var(--mute);margin:16px 0 0;font-size:1.05rem}
+
+/* ── services ── */
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.svc{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r);padding:30px 28px;transition:.2s;position:relative;overflow:hidden}
+.svc::before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,var(--celeste),transparent);opacity:0;transition:.2s}
+.svc:hover{border-color:var(--line);transform:translateY(-3px)}
+.svc:hover::before{opacity:1}
+.svc-ico{width:46px;height:46px;border-radius:12px;background:var(--surface-2);display:grid;place-items:center;margin-bottom:20px;color:var(--celeste)}
+.svc-ico svg{width:23px;height:23px}
+.svc h3{font-size:1.22rem;margin-bottom:10px}
+.svc p{color:var(--mute);font-size:.97rem;margin:0}
+.svc .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--faint);border:1px solid var(--line-soft);border-radius:7px;padding:4px 9px;letter-spacing:.02em}
+
+/* ── projects ── */
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.proj{display:flex;flex-direction:column;background:var(--bg-2);border:1px solid var(--line-soft);border-radius:var(--r);padding:24px;transition:.2s}
+.proj:hover{border-color:var(--celeste);transform:translateY(-3px)}
+.proj .ptop{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.proj .lang{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--celeste);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+.proj .gh{color:var(--faint);transition:.15s}
+.proj:hover .gh{color:var(--celeste)}
+.proj h3{font-family:'JetBrains Mono';font-size:1rem;font-weight:500;margin-bottom:9px;letter-spacing:-.01em}
+.proj p{color:var(--mute);font-size:.92rem;margin:0;flex:1}
+.proj .arrow{margin-top:16px;font-size:.85rem;color:var(--faint);font-family:'JetBrains Mono'}
+.proj:hover .arrow{color:var(--celeste)}
+.proj-foot{margin-top:28px;text-align:center}
+.proj-foot a{color:var(--celeste);font-weight:500;font-size:.95rem;border-bottom:1px solid transparent;transition:.15s}
+.proj-foot a:hover{border-color:var(--celeste)}
+
+/* ── about ── */
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:start}
+.about h2{font-size:clamp(1.7rem,3.4vw,2.3rem);margin-bottom:18px}
+.about p{color:var(--mute);font-size:1.04rem;margin:0 0 16px}
+.about .name{color:var(--text);font-weight:600}
+.creds{display:flex;flex-direction:column;gap:0;background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r);overflow:hidden}
+.cred{padding:18px 22px;border-bottom:1px solid var(--line-soft);display:flex;align-items:center;gap:14px}
+.cred:last-child{border-bottom:0}
+.cred .ci{width:9px;height:9px;border-radius:50%;background:var(--celeste);flex:none}
+.cred .ct{font-family:'Sora';font-weight:500;font-size:.97rem}
+.cred .cs{display:block;color:var(--faint);font-size:.82rem;font-weight:400;font-family:'Inter';margin-top:2px}
+.stack{margin-top:26px}
+.stack .sl{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:13px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mute);background:var(--bg-2);border:1px solid var(--line-soft);border-radius:8px;padding:6px 11px}
+
+/* ── contact ── */
+.contact{background:linear-gradient(160deg,var(--surface),var(--bg-2));border:1px solid var(--line);border-radius:22px;padding:54px 48px;text-align:center;position:relative;overflow:hidden}
+.contact::after{content:"";position:absolute;width:420px;height:420px;background:radial-gradient(circle,rgba(69,199,224,.16),transparent 65%);top:-200px;left:50%;transform:translateX(-50%);pointer-events:none}
+.contact .inner{position:relative;z-index:1}
+.contact h2{font-size:clamp(1.8rem,4vw,2.6rem);max-width:18ch;margin:0 auto 16px}
+.contact p{color:var(--mute);max-width:50ch;margin:0 auto 30px;font-size:1.06rem}
+.contact-cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.btn-wa{background:#25D366;color:#04121a}
+.btn-wa:hover{filter:brightness(1.07);transform:translateY(-2px)}
+.contact small{display:block;margin-top:22px;color:var(--faint);font-family:'JetBrains Mono';font-size:12px;letter-spacing:.04em}
+
+/* ── footer ── */
+footer{border-top:1px solid var(--line-soft);padding:40px 0;margin-top:80px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;color:var(--faint);font-size:.88rem}
+footer .fl{display:flex;align-items:center;gap:10px}
+footer a{color:var(--mute);transition:.15s}
+footer a:hover{color:var(--celeste)}
+.foot-links{display:flex;gap:20px}
+
+@media (max-width:860px){
+  .nav-links{display:none}
+  .menu-btn{display:block}
+  .nav-links.open{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg-2);border-bottom:1px solid var(--line);padding:8px 24px 18px}
+  .nav-links.open a{padding:12px 0;border-bottom:1px solid var(--line-soft)}
+  .nav-links.open .nav-cta{margin-top:12px;text-align:center}
+  .svc-grid{grid-template-columns:1fr}
+  .proj-grid{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr;gap:34px}
+  .contact{padding:42px 24px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+:focus-visible{outline:2px solid var(--celeste);outline-offset:3px;border-radius:6px}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Técnicos UY",
+  "description": "Soporte técnico, Microsoft 365, ciberseguridad y automatización en remoto para pymes de Uruguay y LATAM.",
+  "url": "https://tecnicosuy.com.uy/",
+  "image": "https://tecnicosuy.com.uy/og-image.png",
+  "priceRange": "$$",
+  "areaServed": [
+    { "@type": "Country", "name": "Uruguay" },
+    { "@type": "Place", "name": "Latinoamérica" }
+  ],
+  "serviceType": [
+    "Soporte técnico remoto",
+    "Microsoft 365 y Entra ID",
+    "Ciberseguridad",
+    "Automatización IT"
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Juan Rodríguez",
+    "jobTitle": "Especialista en IT y Ciberseguridad",
+    "sameAs": [
+      "https://github.com/juandresrodca",
+      "https://www.linkedin.com/in/juandresrodriguez"
+    ]
+  },
+  "sameAs": [
+    "https://github.com/juandresrodca",
+    "https://www.linkedin.com/in/juandresrodriguez"
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Técnicos UY inicio">
+      <svg class="sol" viewBox="0 0 40 40" aria-hidden="true">
+        <g fill="none" stroke="#F4B740" stroke-width="1.6" stroke-linecap="round">
+          <circle cx="20" cy="20" r="6.4" fill="#F4B740" stroke="none"/>
+          <g stroke="#45C7E0">
+            <line x1="20" y1="3" x2="20" y2="9"/><line x1="20" y1="31" x2="20" y2="37"/>
+            <line x1="3" y1="20" x2="9" y2="20"/><line x1="31" y1="20" x2="37" y2="20"/>
+            <line x1="8" y1="8" x2="12.2" y2="12.2"/><line x1="27.8" y1="27.8" x2="32" y2="32"/>
+            <line x1="32" y1="8" x2="27.8" y2="12.2"/><line x1="12.2" y1="27.8" x2="8" y2="32"/>
+          </g>
+        </g>
+      </svg>
+      <span><b>Técnicos</b> <span class="uy">UY</span></span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#servicios">Servicios</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#sobre">Sobre mí</a>
+      <a href="#contacto" class="nav-cta">Hablemos</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Menú">☰</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <svg class="sunburst" viewBox="0 0 200 200" aria-hidden="true">
+    <g stroke="#45C7E0" stroke-width="0.5" opacity="0.6">
+      <g id="rays"></g>
+    </g>
+    <circle cx="100" cy="100" r="22" fill="none" stroke="#F4B740" stroke-width="0.7" opacity="0.5"/>
+  </svg>
+  <div class="wrap">
+    <span class="eyebrow">Soporte remoto · Uruguay y toda LATAM</span>
+    <h1>Tecnología <span class="g">enterprise</span> para empresas que no tienen un equipo de IT.</h1>
+    <p class="lead">Microsoft 365, ciberseguridad y automatización, gestionados por un especialista con 14 años en multinacionales como Intel y SAP. Sin contratos eternos, sin jerga: resultados que se notan.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" id="heroWa" href="#contacto">Conversemos tu caso →</a>
+      <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
+    </div>
+    <div class="trust">
+      <span class="lbl">Respaldo</span>
+      <span class="item">Intel</span><span class="dot">·</span>
+      <span class="item">SAP</span><span class="dot">·</span>
+      <span class="item">14 años enterprise</span><span class="dot">·</span>
+      <span class="item">Microsoft certified</span>
+    </div>
+  </div>
+</header>
+
+<!-- SERVICIOS -->
+<section class="block" id="servicios">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Servicios</div>
+      <h2>Lo que resuelvo por vos</h2>
+      <p>Cuatro frentes que cubren lo que una PYME realmente necesita — desde el soporte del día a día hasta blindar tu empresa contra amenazas.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc">
+        <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg></div>
+        <h3>Microsoft 365 &amp; Entra ID</h3>
+        <p>Migración, configuración y blindaje de tu tenant: MFA, Conditional Access, Intune y administración continua. Que tu correo, archivos e identidades sean rápidos y seguros.</p>
+        <div class="tags"><span class="tag">Microsoft 365</span><span class="tag">Entra ID</span><span class="tag">Intune</span><span class="tag">Migración</span></div>
+      </div>
+      <div class="svc">
+        <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v5c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Ciberseguridad</h3>
+        <p>Hardening, evaluación de riesgos, detección de amenazas y respuesta a incidentes. Buenas prácticas y cumplimiento (NIS2, ISO 27001) explicados en lenguaje claro.</p>
+        <div class="tags"><span class="tag">Defender XDR</span><span class="tag">Hardening</span><span class="tag">NIS2</span><span class="tag">SOC</span></div>
+      </div>
+      <div class="svc">
+        <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 4l-2 4h4l-4 12 2-8h-4l4-8z"/></svg></div>
+        <h3>Automatización</h3>
+        <p>Scripts y workflows en PowerShell y Python que eliminan tareas manuales. Integraciones con IA para ahorrarle horas a tu equipo cada semana.</p>
+        <div class="tags"><span class="tag">PowerShell</span><span class="tag">Python</span><span class="tag">IA / APIs</span><span class="tag">Integraciones</span></div>
+      </div>
+      <div class="svc">
+        <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
+        <h3>Soporte IT remoto</h3>
+        <p>Mesa de ayuda N1/N2, administración de Windows Server y Active Directory, resolución de problemas. Como tener un departamento de IT — sin la planilla de sueldos.</p>
+        <div class="tags"><span class="tag">Help Desk</span><span class="tag">Windows Server</span><span class="tag">Active Directory</span><span class="tag">N1 / N2</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROYECTOS -->
+<section class="block" id="proyectos">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Proyectos</div>
+      <h2>No solo lo digo — lo construyo</h2>
+      <p>Herramientas reales de IT, automatización y seguridad que desarrollé y publiqué en abierto. La mejor prueba de capacidad es el código.</p>
+    </div>
+    <div class="proj-grid" id="projGrid"></div>
+    <div class="proj-foot">
+      <a href="https://github.com/juandresrodca" target="_blank" rel="noopener">Ver todo en GitHub · github.com/juandresrodca →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="block" id="sobre">
+  <div class="wrap">
+    <div class="about">
+      <div>
+        <div class="kicker">Sobre mí</div>
+        <h2>Un especialista, no una agencia</h2>
+        <p>Soy <span class="name">Juan Rodríguez</span>. Llevo más de 14 años resolviendo problemas de IT en entornos exigentes — desde soporte a grandes empresas hasta operaciones globales en multinacionales como <span class="name">Intel</span> y <span class="name">SAP</span>, trabajando hoy desde Europa.</p>
+        <p>Eso significa que tu empresa accede a estándares enterprise — los mismos procesos, seguridad y rigor de una corporación — pero con el trato directo y la agilidad de tratar con una sola persona que te conoce. Trabajo en remoto, en español o inglés, con una zona horaria cómoda para LATAM.</p>
+        <div class="stack">
+          <div class="sl">Stack técnico</div>
+          <div class="chips">
+            <span class="chip">Microsoft 365</span><span class="chip">Entra ID</span><span class="chip">Azure</span>
+            <span class="chip">Intune</span><span class="chip">Defender XDR</span><span class="chip">KQL</span>
+            <span class="chip">Active Directory</span><span class="chip">Windows Server</span>
+            <span class="chip">PowerShell</span><span class="chip">Python</span><span class="chip">C# / .NET</span>
+            <span class="chip">SQLite</span>
+          </div>
+        </div>
+      </div>
+      <div class="creds" aria-label="Credenciales">
+        <div class="cred"><span class="ci"></span><div><span class="ct">14+ años en IT enterprise<span class="cs">Intel Ireland · SAP · L1/L2 y operaciones globales</span></span></div></div>
+        <div class="cred"><span class="ci"></span><div><span class="ct">Microsoft Applied Skills · Defender XDR<span class="cs">Seguridad de endpoints y respuesta a amenazas</span></span></div></div>
+        <div class="cred"><span class="ci"></span><div><span class="ct">ITIL v3<span class="cs">Gestión de servicios IT</span></span></div></div>
+        <div class="cred"><span class="ci"></span><div><span class="ct">Virtualización e infraestructura<span class="cs">VMware, Hyper-V, Windows Server y Active Directory</span></span></div></div>
+        <div class="cred"><span class="ci"></span><div><span class="ct">Bilingüe · Español / Inglés<span class="cs">Comunicación clara con tu equipo y tus clientes</span></span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="block" id="contacto">
+  <div class="wrap">
+    <div class="contact">
+      <div class="inner">
+        <div class="kicker" style="justify-content:center">Hablemos</div>
+        <h2>Contame qué necesita tu empresa</h2>
+        <p>Primera conversación sin costo. Me decís tu problema, te digo si puedo resolverlo, cuánto cuesta y en cuánto tiempo. Sin vueltas.</p>
+        <div class="contact-cta">
+          <a class="btn btn-wa" id="waBtn" href="#" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8.9-.3.2-.5 0a6.5 6.5 0 0 1-1.9-1.2 7.3 7.3 0 0 1-1.4-1.7c-.1-.3 0-.4.1-.5l.4-.5c.1-.1.1-.3.2-.4s0-.3 0-.4-.5-1.3-.7-1.8-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.6 4 5.3 5.3 0 0 0 3.2.7 2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+            Escribime por WhatsApp
+          </a>
+          <a class="btn btn-ghost" id="mailBtn" href="#">Enviar un email</a>
+        </div>
+        <small id="locLine">Disponible en remoto · Respuesta el mismo día hábil</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fl">
+      <svg class="sol" style="width:22px;height:22px" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="6" fill="#F4B740"/><g stroke="#45C7E0" stroke-width="1.6" stroke-linecap="round"><line x1="20" y1="4" x2="20" y2="9"/><line x1="20" y1="31" x2="20" y2="36"/><line x1="4" y1="20" x2="9" y2="20"/><line x1="31" y1="20" x2="36" y2="20"/></g></svg>
+      <span>© <span id="yr"></span> Técnicos UY · Juan Rodríguez</span>
+    </div>
+    <div class="foot-links">
+      <a href="https://github.com/juandresrodca" target="_blank" rel="noopener">GitHub</a>
+      <a id="footLinkedIn" href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a id="footMail" href="#">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ════════════════════════════════════════════════════════════
+   CONFIG — cambiá estos datos y listo.
+   ════════════════════════════════════════════════════════════ */
+const CFG = {
+  whatsapp: "59899000000",                 // ← tu número con código país, sin + ni espacios
+  email:    "hola@tecnicosuy.com.uy",       // ← tu email
+  linkedin: "https://www.linkedin.com/in/juandresrodriguez", // ← tu LinkedIn
+  waMessage:"Hola Juan, vi tu web Técnicos UY y quería consultarte por", // mensaje pre-cargado de WhatsApp
+  location: "Disponible en remoto · Respuesta el mismo día hábil"
+};
+
+/* Proyectos reales (de github.com/juandresrodca) */
+const PROJECTS = [
+  { name:"InventoryIQ", lang:"Python",
+    desc:"Agente de Microsoft 365 Copilot para inventario de activos IT y razonamiento sobre datacenter.",
+    url:"https://github.com/juandresrodca/InventoryIQ" },
+  { name:"AI-IT-Support-Copilot", lang:"Python",
+    desc:"Copiloto de IA para soporte técnico: asiste al help desk a resolver más rápido.",
+    url:"https://github.com/juandresrodca/AI-IT-Support-Copilot" },
+  { name:"Phishing-Detection-Sim", lang:"Python",
+    desc:"Herramienta ligera de análisis de phishing para equipos SOC.",
+    url:"https://github.com/juandresrodca/Phishing-Detection-Sim" },
+  { name:"PassiveReconn", lang:"Python",
+    desc:"Reconocimiento pasivo (OSINT) de cualquier dominio desde línea de comandos.",
+    url:"https://github.com/juandresrodca/PassiveReconn" },
+  { name:"DorkCraft", lang:"Astro",
+    desc:"Asistente de Google Dorks para investigación y análisis de seguridad.",
+    url:"https://github.com/juandresrodca/DorkCraft" },
+  { name:"job-application-tracker", lang:"C# / .NET 8",
+    desc:"App de escritorio WPF de calidad productiva, con SQLite y sincronización a Obsidian.",
+    url:"https://github.com/juandresrodca/job-application-tracker" }
+];
+
+/* ── render projects ── */
+const grid=document.getElementById('projGrid');
+PROJECTS.forEach(p=>{
+  const a=document.createElement('a');
+  a.className='proj'; a.href=p.url; a.target="_blank"; a.rel="noopener";
+  a.innerHTML=`
+    <div class="ptop">
+      <span class="lang">${p.lang}</span>
+      <svg class="gh" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2A10 10 0 0 0 8.8 21.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6 0-.6 0-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.3-1.1.6-1.4-2.2-.2-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7 0-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.8-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg>
+    </div>
+    <h3>${p.name}</h3>
+    <p>${p.desc}</p>
+    <div class="arrow">Ver en GitHub →</div>`;
+  grid.appendChild(a);
+});
+
+/* ── wire up contact ── */
+const waHref="https://wa.me/"+CFG.whatsapp+"?text="+encodeURIComponent(CFG.waMessage+" ");
+document.getElementById('waBtn').href=waHref;
+document.getElementById('heroWa').href="#contacto";
+const mailHref="mailto:"+CFG.email+"?subject="+encodeURIComponent("Consulta · Técnicos UY");
+document.getElementById('mailBtn').href=mailHref;
+document.getElementById('footMail').href=mailHref;
+document.getElementById('footLinkedIn').href=CFG.linkedin;
+document.getElementById('locLine').textContent=CFG.location;
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* ── sunburst rays ── */
+const rg=document.getElementById('rays');
+if(rg){ let s=""; for(let i=0;i<48;i++){const a=(i/48)*Math.PI*2;
+  s+=`<line x1="100" y1="100" x2="${(100+96*Math.cos(a)).toFixed(1)}" y2="${(100+96*Math.sin(a)).toFixed(1)}"/>`;}
+  rg.innerHTML=s; }
+
+/* ── mobile menu ── */
+const mb=document.getElementById('menuBtn'), nl=document.getElementById('navLinks');
+mb.addEventListener('click',()=>nl.classList.toggle('open'));
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
+</script>
+</body>
+</html>

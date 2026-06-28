@@ -1,0 +1,11 @@
+# Claude Code local session config — no versionar
+.claude/
+CLAUDE.md
+
+# OS / editor cruft
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+*~
