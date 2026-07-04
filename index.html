@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Técnicos UY · Soporte IT, Microsoft 365 y ciberseguridad remota</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Soporte IT, Microsoft 365 y Ciberseguridad para Pymes en Uruguay | Técnicos UY</title>
 <meta name="description" content="Soporte técnico, Microsoft 365, ciberseguridad y automatización para pymes de Uruguay y LATAM. Gestionado en remoto por un especialista con 14 años en multinacionales como Intel y SAP.">
 <meta name="robots" content="index,follow">
 <meta name="author" content="Juan Rodríguez">
@@ -109,6 +111,9 @@ section.block{padding:80px 0;position:relative}
 .svc p{color:var(--mute);font-size:.97rem;margin:0}
 .svc .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
 .tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--faint);border:1px solid var(--line-soft);border-radius:7px;padding:4px 9px;letter-spacing:.02em}
+.svc ul{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:7px}
+.svc li{color:var(--mute);font-size:.93rem;padding-left:20px;position:relative}
+.svc li::before{content:"→";position:absolute;left:0;top:0;color:var(--celeste);font-family:'JetBrains Mono',monospace;font-size:.82rem}
 
 /* ── projects ── */
 .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -141,6 +146,16 @@ section.block{padding:80px 0;position:relative}
 .stack .sl{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:13px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mute);background:var(--bg-2);border:1px solid var(--line-soft);border-radius:8px;padding:6px 11px}
+
+/* ── faq ── */
+.faq-list{max-width:820px}
+.qa{background:var(--surface);border:1px solid var(--line-soft);border-radius:14px;margin-bottom:12px;transition:.2s}
+.qa[open]{border-color:var(--line)}
+.qa summary{cursor:pointer;padding:19px 22px;font-family:'Sora',system-ui,sans-serif;font-weight:500;font-size:1.02rem;display:flex;align-items:center;justify-content:space-between;gap:16px;list-style:none}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:"+";font-family:'JetBrains Mono',monospace;color:var(--celeste);font-size:1.15rem;flex:none}
+.qa[open] summary::after{content:"−"}
+.qa .ans{padding:0 22px 20px;color:var(--mute);font-size:.97rem;max-width:70ch}
 
 /* ── contact ── */
 .contact{background:linear-gradient(160deg,var(--surface),var(--bg-2));border:1px solid var(--line);border-radius:22px;padding:54px 48px;text-align:center;position:relative;overflow:hidden}
@@ -209,6 +224,44 @@ footer a:hover{color:var(--celeste)}
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta el soporte IT para una pyme en Uruguay?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Depende del tamaño de tu empresa y de lo que necesites: hay planes mensuales por usuario y proyectos puntuales, como una migración o una auditoría de seguridad. La primera conversación es sin costo: me contás tu situación y recibís una propuesta clara, con precio cerrado y sin permanencia obligatoria." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Atendés empresas de todo Uruguay o solo Montevideo?",
+      "acceptedAnswer": { "@type": "Answer", "text": "De todo Uruguay y LATAM. El servicio es 100% remoto: la enorme mayoría de los problemas de Microsoft 365, seguridad y soporte se resuelven mejor a distancia, con respuesta más rápida que esperar una visita técnica." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué diferencia hay con una empresa de soporte tradicional?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Tratás directo con el especialista que hace el trabajo — sin vendedores, sin rotación de técnicos, sin que tu caso pase por tres manos. Los mismos estándares que aprendí en Intel y SAP, con la agilidad de una sola persona y sin contratos eternos." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Podés migrar mi empresa a Microsoft 365?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sí. Migro correo, archivos y calendarios desde Gmail o Google Workspace, correo de hosting o servidores propios, sin perder datos y con el tenant configurado seguro desde el día uno: MFA, respaldos y las licencias justas para tu tamaño." }
+    },
+    {
+      "@type": "Question",
+      "name": "Mi empresa es chica. ¿Realmente necesita ciberseguridad?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sí, y justamente por ser chica: casi la mitad de las brechas de seguridad afectan a empresas pequeñas, porque los atacantes saben que suelen estar menos protegidas. La buena noticia: con MFA bien implementado, respaldos verificados y un equipo entrenado se elimina la mayor parte del riesgo, sin presupuesto corporativo." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo empezamos?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Me escribís por WhatsApp o email contándome tu problema o lo que querés mejorar. Te respondo el mismo día hábil con una lectura honesta: si lo puedo resolver, cuánto cuesta y en cuánto tiempo. Si no soy la persona indicada, también te lo digo." }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -232,6 +285,7 @@ footer a:hover{color:var(--celeste)}
       <a href="#servicios">Servicios</a>
       <a href="#proyectos">Proyectos</a>
       <a href="#sobre">Sobre mí</a>
+      <a href="#faq">FAQ</a>
       <a href="#contacto" class="nav-cta">Hablemos</a>
     </div>
     <button class="menu-btn" id="menuBtn" aria-label="Menú">☰</button>
@@ -275,25 +329,49 @@ footer a:hover{color:var(--celeste)}
       <div class="svc">
         <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg></div>
         <h3>Microsoft 365 &amp; Entra ID</h3>
-        <p>Migración, configuración y blindaje de tu tenant: MFA, Conditional Access, Intune y administración continua. Que tu correo, archivos e identidades sean rápidos y seguros.</p>
+        <p>Tu correo, Teams, SharePoint e identidades: rápidos, ordenados y seguros. Desde la migración inicial hasta la administración mensual del tenant, sin cortes de servicio.</p>
+        <ul>
+          <li>Migración de correo y archivos desde Gmail, hosting o servidores propios — sin perder un mail</li>
+          <li>Blindaje de identidades: MFA, Conditional Access y revisión de accesos</li>
+          <li>Gestión de computadoras y celulares de la empresa con Intune</li>
+          <li>Optimización de licencias: pagás solo lo que usás</li>
+        </ul>
         <div class="tags"><span class="tag">Microsoft 365</span><span class="tag">Entra ID</span><span class="tag">Intune</span><span class="tag">Migración</span></div>
       </div>
       <div class="svc">
         <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v5c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <h3>Ciberseguridad</h3>
-        <p>Hardening, evaluación de riesgos, detección de amenazas y respuesta a incidentes. Buenas prácticas y cumplimiento (NIS2, ISO 27001) explicados en lenguaje claro.</p>
+        <p>Protección real para pymes, sin vender miedo. Una evaluación honesta de tu riesgo y un plan priorizado que tu empresa puede ejecutar — explicado en lenguaje claro.</p>
+        <ul>
+          <li>Auditoría de seguridad con plan de acción priorizado</li>
+          <li>Hardening de Microsoft 365, Windows y servidores</li>
+          <li>Detección de amenazas y respuesta a incidentes con Defender XDR</li>
+          <li>Capacitación anti-phishing para tu equipo, alineada a CIS, ISO 27001 y NIS2</li>
+        </ul>
         <div class="tags"><span class="tag">Defender XDR</span><span class="tag">Hardening</span><span class="tag">NIS2</span><span class="tag">SOC</span></div>
       </div>
       <div class="svc">
         <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 4l-2 4h4l-4 12 2-8h-4l4-8z"/></svg></div>
         <h3>Automatización</h3>
-        <p>Scripts y workflows en PowerShell y Python que eliminan tareas manuales. Integraciones con IA para ahorrarle horas a tu equipo cada semana.</p>
+        <p>Las tareas repetitivas no deberían consumir horas de tu equipo. Scripts y flujos hechos a medida de cómo trabaja tu empresa — documentados y mantenibles.</p>
+        <ul>
+          <li>Reportes automáticos: ventas, stock, facturación — lo que definas</li>
+          <li>Altas y bajas de usuarios en un clic (Microsoft 365 + Entra ID)</li>
+          <li>Integraciones entre tus sistemas vía APIs</li>
+          <li>Asistentes con IA sobre tus propios datos y documentos</li>
+        </ul>
         <div class="tags"><span class="tag">PowerShell</span><span class="tag">Python</span><span class="tag">IA / APIs</span><span class="tag">Integraciones</span></div>
       </div>
       <div class="svc">
         <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
         <h3>Soporte IT remoto</h3>
-        <p>Mesa de ayuda N1/N2, administración de Windows Server y Active Directory, resolución de problemas. Como tener un departamento de IT — sin la planilla de sueldos.</p>
+        <p>Como tener un departamento de IT — sin la planilla de sueldos. Un canal directo para tu equipo y mantenimiento preventivo para que las cosas no se rompan.</p>
+        <ul>
+          <li>Mesa de ayuda N1/N2 por WhatsApp o correo, con tiempos de respuesta claros</li>
+          <li>Administración de Windows Server y Active Directory</li>
+          <li>Respaldos configurados y verificados — no solo «activados»</li>
+          <li>Inventario de equipos, licencias y gestión de proveedores</li>
+        </ul>
         <div class="tags"><span class="tag">Help Desk</span><span class="tag">Windows Server</span><span class="tag">Active Directory</span><span class="tag">N1 / N2</span></div>
       </div>
     </div>
@@ -310,7 +388,7 @@ footer a:hover{color:var(--celeste)}
     </div>
     <div class="proj-grid" id="projGrid"></div>
     <div class="proj-foot">
-      <a href="https://github.com/juandresrodca" target="_blank" rel="noopener">Ver todo en GitHub · github.com/juandresrodca →</a>
+      <a href="https://github.com/juandresrodca" target="_blank" rel="noopener noreferrer">Ver todo en GitHub · github.com/juandresrodca →</a>
     </div>
   </div>
 </section>
@@ -346,6 +424,42 @@ footer a:hover{color:var(--celeste)}
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="block" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Preguntas frecuentes</div>
+      <h2>Lo que las pymes me preguntan primero</h2>
+    </div>
+    <div class="faq-list">
+      <details class="qa">
+        <summary>¿Cuánto cuesta el soporte IT para una pyme en Uruguay?</summary>
+        <p class="ans">Depende del tamaño de tu empresa y de lo que necesites: hay planes mensuales por usuario y proyectos puntuales, como una migración o una auditoría de seguridad. La primera conversación es sin costo: me contás tu situación y recibís una propuesta clara, con precio cerrado y sin permanencia obligatoria.</p>
+      </details>
+      <details class="qa">
+        <summary>¿Atendés empresas de todo Uruguay o solo Montevideo?</summary>
+        <p class="ans">De todo Uruguay y LATAM. El servicio es 100% remoto: la enorme mayoría de los problemas de Microsoft 365, seguridad y soporte se resuelven mejor a distancia, con respuesta más rápida que esperar una visita técnica.</p>
+      </details>
+      <details class="qa">
+        <summary>¿Qué diferencia hay con una empresa de soporte tradicional?</summary>
+        <p class="ans">Tratás directo con el especialista que hace el trabajo — sin vendedores, sin rotación de técnicos, sin que tu caso pase por tres manos. Los mismos estándares que aprendí en Intel y SAP, con la agilidad de una sola persona y sin contratos eternos.</p>
+      </details>
+      <details class="qa">
+        <summary>¿Podés migrar mi empresa a Microsoft 365?</summary>
+        <p class="ans">Sí. Migro correo, archivos y calendarios desde Gmail o Google Workspace, correo de hosting o servidores propios, sin perder datos y con el tenant configurado seguro desde el día uno: MFA, respaldos y las licencias justas para tu tamaño.</p>
+      </details>
+      <details class="qa">
+        <summary>Mi empresa es chica. ¿Realmente necesita ciberseguridad?</summary>
+        <p class="ans">Sí, y justamente por ser chica: casi la mitad de las brechas de seguridad afectan a empresas pequeñas, porque los atacantes saben que suelen estar menos protegidas. La buena noticia: con MFA bien implementado, respaldos verificados y un equipo entrenado se elimina la mayor parte del riesgo, sin presupuesto corporativo.</p>
+      </details>
+      <details class="qa">
+        <summary>¿Cómo empezamos?</summary>
+        <p class="ans">Me escribís por WhatsApp o email contándome tu problema o lo que querés mejorar. Te respondo el mismo día hábil con una lectura honesta: si lo puedo resolver, cuánto cuesta y en cuánto tiempo. Si no soy la persona indicada, también te lo digo.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACTO -->
 <section class="block" id="contacto">
   <div class="wrap">
@@ -355,7 +469,7 @@ footer a:hover{color:var(--celeste)}
         <h2>Contame qué necesita tu empresa</h2>
         <p>Primera conversación sin costo. Me decís tu problema, te digo si puedo resolverlo, cuánto cuesta y en cuánto tiempo. Sin vueltas.</p>
         <div class="contact-cta">
-          <a class="btn btn-wa" id="waBtn" href="#" target="_blank" rel="noopener">
+          <a class="btn btn-wa" id="waBtn" href="#" target="_blank" rel="noopener noreferrer">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8.9-.3.2-.5 0a6.5 6.5 0 0 1-1.9-1.2 7.3 7.3 0 0 1-1.4-1.7c-.1-.3 0-.4.1-.5l.4-.5c.1-.1.1-.3.2-.4s0-.3 0-.4-.5-1.3-.7-1.8-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.6 4 5.3 5.3 0 0 0 3.2.7 2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
             Escribime por WhatsApp
           </a>
@@ -374,8 +488,8 @@ footer a:hover{color:var(--celeste)}
       <span>© <span id="yr"></span> Técnicos UY · Juan Rodríguez</span>
     </div>
     <div class="foot-links">
-      <a href="https://github.com/juandresrodca" target="_blank" rel="noopener">GitHub</a>
-      <a id="footLinkedIn" href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/juandresrodca" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a id="footLinkedIn" href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a id="footMail" href="#">Email</a>
     </div>
   </div>
@@ -419,7 +533,7 @@ const PROJECTS = [
 const grid=document.getElementById('projGrid');
 PROJECTS.forEach(p=>{
   const a=document.createElement('a');
-  a.className='proj'; a.href=p.url; a.target="_blank"; a.rel="noopener";
+  a.className='proj'; a.href=p.url; a.target="_blank"; a.rel="noopener noreferrer";
   a.innerHTML=`
     <div class="ptop">
       <span class="lang">${p.lang}</span>

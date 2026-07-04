@@ -1,0 +1,7 @@
+# Política de divulgación de vulnerabilidades — Técnicos UY
+# Si encontraste un problema de seguridad en este sitio, gracias por reportarlo responsablemente.
+
+Contact: https://tecnicosuy.com.uy/#contacto
+Expires: 2027-07-04T12:00:00.000Z
+Preferred-Languages: es, en
+Canonical: https://tecnicosuy.com.uy/.well-known/security.txt
