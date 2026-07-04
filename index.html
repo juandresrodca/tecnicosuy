@@ -49,6 +49,9 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+/* grano de película sutil — textura física sobre el fondo plano */
+body::after{content:"";position:fixed;inset:0;z-index:80;pointer-events:none;opacity:.028;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
 body{margin:0;background:var(--bg);color:var(--text);
   font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
@@ -69,8 +72,10 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .nav-links{display:flex;align-items:center;gap:28px}
 .nav-links a{color:var(--mute);font-size:.92rem;font-weight:500;transition:color .15s ease}
 .nav-links a:hover{color:var(--text)}
-.nav-cta{font-family:'Inter';font-weight:600;font-size:.9rem;padding:10px 18px;border-radius:10px;background:var(--celeste);color:#04121a;transition:transform .16s var(--ease-out),filter .15s ease}
-.nav-cta:hover{filter:brightness(1.08)}
+.nav-links a.active{color:var(--celeste)}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:linear-gradient(90deg,var(--celeste),var(--sol));transform-origin:0 50%;transform:scaleX(0);pointer-events:none;display:none}
+a.nav-cta{font-family:'Inter';font-weight:600;font-size:.9rem;padding:10px 18px;border-radius:10px;background:var(--celeste);color:#04121a;transition:transform .16s var(--ease-out),filter .15s ease}
+a.nav-cta:hover{filter:brightness(1.08)}
 .menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:9px;color:var(--text);padding:8px 11px;cursor:pointer;font-size:1.1rem;transition:transform .12s var(--ease-out)}
 
 /* ── hero ── */
@@ -98,6 +103,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 section.block{padding:80px 0;position:relative}
 .sec-head{margin-bottom:46px;max-width:60ch}
 .kicker{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--celeste);margin-bottom:14px}
+.kicker b{color:var(--sol);font-weight:500}
 .sec-head h2{font-size:clamp(1.7rem,3.6vw,2.5rem)}
 .sec-head p{color:var(--mute);margin:16px 0 0;font-size:1.05rem}
 
@@ -119,7 +125,7 @@ section.block{padding:80px 0;position:relative}
 
 /* ── projects ── */
 .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.proj{display:flex;flex-direction:column;background:var(--bg-2);border:1px solid var(--line-soft);border-radius:var(--r);padding:24px;transition:transform .2s var(--ease-out),border-color .2s ease}
+.proj{display:flex;flex-direction:column;background:var(--bg-2);border:1px solid var(--line-soft);border-radius:var(--r);padding:24px;transition:transform .2s var(--ease-out),border-color .2s ease;position:relative;overflow:hidden}
 .proj:hover{border-color:var(--celeste)}
 .proj .ptop{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
 .proj .lang{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--celeste);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
@@ -208,6 +214,14 @@ footer a:hover{color:var(--celeste)}
 .reveal{opacity:0}
 .reveal.in{opacity:1;animation:rise .55s var(--ease-out) var(--d,0ms) backwards}
 
+/* titular del hero palabra por palabra (el JS parte el h1 en spans .w) */
+.hero h1.split{animation:none}
+.hero h1 .w{display:inline-block;animation:word-rise .7s var(--ease-out) backwards}
+@keyframes word-rise{from{opacity:0;transform:translateY(.4em);filter:blur(8px)}}
+
+/* flecha anidada del CTA primario (button-in-button) */
+.bic{width:26px;height:26px;border-radius:50%;background:rgba(4,18,26,.16);display:grid;place-items:center;font-size:.85rem;margin-right:-6px;transition:transform .2s var(--ease-out)}
+
 /* press feedback — todo lo presionable responde al tacto */
 .btn:active,.nav-cta:active{transform:scale(.97)}
 .menu-btn:active{transform:scale(.94)}
@@ -217,7 +231,21 @@ footer a:hover{color:var(--celeste)}
   .nav-cta:hover{transform:translateY(-1px)}
   .btn-primary:hover,.btn-wa:hover{transform:translateY(-2px)}
   .svc:hover,.proj:hover{transform:translateY(-3px)}
+  .btn-primary:hover .bic{transform:translate(2px,-1px)}
+  /* spotlight que sigue el cursor en las cards (JS setea --mx/--my) */
+  .svc::after,.proj::after{content:"";position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .3s ease;
+    background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(69,199,224,.08),transparent 65%)}
+  .svc:hover::after,.proj:hover::after{opacity:1}
 }
+
+/* scroll-driven (progresivo: solo navegadores con animation-timeline) */
+@supports (animation-timeline: scroll()){
+  .progress{display:block;animation:bar-grow linear both;animation-timeline:scroll(root)}
+  .sunburst{animation-name:spin,sun-drift;animation-duration:240s,1s;animation-timing-function:linear,linear;
+    animation-iteration-count:infinite,1;animation-fill-mode:none,both;animation-timeline:auto,scroll(root);animation-range:normal,0 100vh}
+}
+@keyframes bar-grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes sun-drift{to{translate:0 90px;opacity:.22}}
 </style>
 <script type="application/ld+json">
 {
@@ -319,6 +347,7 @@ footer a:hover{color:var(--celeste)}
     </div>
     <button class="menu-btn" id="menuBtn" aria-label="Menú">☰</button>
   </div>
+  <div class="progress" aria-hidden="true"></div>
 </nav>
 
 <header class="hero" id="top">
@@ -333,7 +362,7 @@ footer a:hover{color:var(--celeste)}
     <h1>Tecnología <span class="g">enterprise</span> para empresas que no tienen un equipo de IT.</h1>
     <p class="lead">Microsoft 365, ciberseguridad y automatización, gestionados por un especialista con más de 14 años de experiencia en IT. Empecé en ANCAP y el MIEM, seguí en SONDA y hoy trabajo con los mismos estándares que aprendí en Intel y SAP.</p>
     <div class="hero-cta">
-      <a class="btn btn-primary" id="heroWa" href="#contacto">Conversemos tu caso →</a>
+      <a class="btn btn-primary" id="heroWa" href="#contacto">Conversemos tu caso <span class="bic" aria-hidden="true">→</span></a>
       <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
     </div>
     <div class="trust">
@@ -352,7 +381,7 @@ footer a:hover{color:var(--celeste)}
 <section class="block" id="servicios">
   <div class="wrap">
     <div class="sec-head">
-      <div class="kicker">Servicios</div>
+      <div class="kicker"><b>01</b> · Servicios</div>
       <h2>Lo que resuelvo por vos</h2>
       <p>Cuatro frentes que cubren lo que una pyme realmente necesita, desde el soporte del día a día hasta blindar tu empresa contra amenazas.</p>
     </div>
@@ -413,8 +442,8 @@ footer a:hover{color:var(--celeste)}
 <section class="block" id="proyectos">
   <div class="wrap">
     <div class="sec-head">
-      <div class="kicker">Proyectos</div>
-      <h2>Aqui algunos de mis Proyectos open-source </h2>
+      <div class="kicker"><b>02</b> · Proyectos</div>
+      <h2>Aquí algunos de mis proyectos open-source</h2>
       <p>Herramientas reales de IT, automatización y seguridad que desarrollé y publiqué en abierto. La mejor prueba de capacidad es el código.</p>
     </div>
     <div class="proj-grid" id="projGrid"></div>
@@ -429,7 +458,7 @@ footer a:hover{color:var(--celeste)}
   <div class="wrap">
     <div class="about">
       <div>
-        <div class="kicker">Sobre mí</div>
+        <div class="kicker"><b>03</b> · Sobre mí</div>
         <h2>Un especialista, no una agencia</h2>
         <p>Soy <span class="name">Juan Rodríguez</span>. Llevo más de 14 años resolviendo problemas de IT en entornos exigentes. Empecé en Uruguay, en <span class="name">ANCAP</span> y en el <span class="name">MIEM</span> (Ministerio de Energía, Industria y Minería), y pasé por <span class="name">SONDA</span>. Después seguí en operaciones globales de multinacionales como <span class="name">Intel</span> y <span class="name">SAP</span>, y hoy trabajo desde Europa.</p>
         <p>Eso significa que tu empresa accede a estándares enterprise, los mismos procesos, seguridad y rigor de un organismo público y de una corporación internacional, pero con el trato directo y la agilidad de tratar con una sola persona que te conoce. Trabajo en remoto, en español o inglés, con una zona horaria cómoda para LATAM.</p>
@@ -447,7 +476,7 @@ footer a:hover{color:var(--celeste)}
       <div class="creds" aria-label="Credenciales">
         <div class="cred"><span class="ci"></span><div><span class="ct">14+ años en IT, del sector público al enterprise<span class="cs">ANCAP · MIEM · SONDA · Intel Ireland · SAP</span></span></div></div>
         <div class="cred"><span class="ci"></span><div><span class="ct">Microsoft Applied Skills · Defender XDR<span class="cs">Seguridad de endpoints y respuesta a amenazas</span></span></div></div>
-         <div class="cred"><span class="ci"></span><div><span class="ct">Universidad ORT . Especialista en ciberseguridad y gestion de amenazas <span class="cs">linux, Microsoft Defender XDR, Windows Server</span></span></div></div>
+        <div class="cred"><span class="ci"></span><div><span class="ct">Universidad ORT · Especialista en ciberseguridad y gestión de amenazas<span class="cs">Linux, Microsoft Defender XDR, Windows Server</span></span></div></div>
         <div class="cred"><span class="ci"></span><div><span class="ct">ITIL v3<span class="cs">Gestión de servicios IT</span></span></div></div>
         <div class="cred"><span class="ci"></span><div><span class="ct">Virtualización e infraestructura<span class="cs">VMware, Hyper-V, Windows Server y Active Directory</span></span></div></div>
         <div class="cred"><span class="ci"></span><div><span class="ct">Bilingüe · Español / Inglés<span class="cs">Comunicación clara con tu equipo y tus clientes</span></span></div></div>
@@ -460,7 +489,7 @@ footer a:hover{color:var(--celeste)}
 <section class="block" id="faq">
   <div class="wrap">
     <div class="sec-head">
-      <div class="kicker">Preguntas frecuentes</div>
+      <div class="kicker"><b>04</b> · Preguntas frecuentes</div>
       <h2>Lo que las pymes me preguntan primero</h2>
     </div>
     <div class="faq-list">
@@ -497,7 +526,7 @@ footer a:hover{color:var(--celeste)}
   <div class="wrap">
     <div class="contact">
       <div class="inner">
-        <div class="kicker" style="justify-content:center">Hablemos</div>
+        <div class="kicker" style="justify-content:center"><b>05</b> · Hablemos</div>
         <h2>Contame qué necesita tu empresa</h2>
         <p>Primera conversación sin costo. Me decís tu problema, te digo si puedo resolverlo, cuánto cuesta y en cuánto tiempo. Sin vueltas.</p>
         <div class="contact-cta">
@@ -600,17 +629,65 @@ mb.addEventListener('click',()=>nl.classList.toggle('open'));
 nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
 
 /* ── scroll reveal (progresivo: sin IO o con reduced-motion, todo queda visible) ── */
-if(matchMedia('(prefers-reduced-motion: no-preference)').matches && 'IntersectionObserver' in window){
+const motionOK=matchMedia('(prefers-reduced-motion: no-preference)').matches;
+if(motionOK && 'IntersectionObserver' in window){
   document.querySelectorAll('.svc-grid,.proj-grid,.creds,.faq-list').forEach(g=>{
     [...g.children].forEach((el,i)=>{
       el.classList.add('reveal');
       el.style.setProperty('--d',(i*60)+'ms');
     });
   });
+  document.querySelectorAll('.sec-head').forEach(el=>el.classList.add('reveal'));
   const io=new IntersectionObserver(entries=>entries.forEach(e=>{
     if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
   }),{rootMargin:'0px 0px -40px 0px',threshold:.1});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}
+
+/* ── hero: el titular entra palabra por palabra ── */
+if(motionOK){
+  const h=document.querySelector('.hero h1');
+  if(h){
+    let i=0; const out=document.createDocumentFragment();
+    [...h.childNodes].forEach(n=>{
+      if(n.nodeType===3){
+        n.textContent.split(/(\s+)/).forEach(t=>{
+          if(!t) return;
+          if(/^\s+$/.test(t)){ out.appendChild(document.createTextNode(t)); return; }
+          const s=document.createElement('span'); s.className='w'; s.textContent=t;
+          s.style.animationDelay=(90+i++*45)+'ms'; out.appendChild(s);
+        });
+      } else {
+        n.classList.add('w'); n.style.animationDelay=(90+i++*45)+'ms'; out.appendChild(n);
+      }
+    });
+    h.textContent=''; h.appendChild(out); h.classList.add('split');
+  }
+}
+
+/* ── spotlight en cards: el brillo sigue el cursor ── */
+if(matchMedia('(hover:hover) and (pointer:fine)').matches){
+  document.querySelectorAll('.svc,.proj').forEach(c=>{
+    c.addEventListener('pointermove',e=>{
+      const r=c.getBoundingClientRect();
+      c.style.setProperty('--mx',(e.clientX-r.left)+'px');
+      c.style.setProperty('--my',(e.clientY-r.top)+'px');
+    },{passive:true});
+  });
+}
+
+/* ── scroll-spy: la sección visible se marca en el nav ── */
+if('IntersectionObserver' in window){
+  const spyLinks={};
+  document.querySelectorAll('.nav-links a:not(.nav-cta)').forEach(a=>{spyLinks[a.getAttribute('href').slice(1)]=a;});
+  const spy=new IntersectionObserver(es=>es.forEach(e=>{
+    const a=spyLinks[e.target.id]; if(!a) return;
+    if(e.isIntersecting){
+      Object.values(spyLinks).forEach(x=>x.classList.remove('active'));
+      a.classList.add('active');
+    }
+  }),{rootMargin:'-30% 0px -60% 0px'});
+  document.querySelectorAll('section[id]').forEach(s=>spy.observe(s));
 }
 </script>
 </body>
