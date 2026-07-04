@@ -2,6 +2,10 @@
 .claude/
 CLAUDE.md
 
+# Tooling de skills (npx skills) — no versionar
+.agents/
+skills-lock.json
+
 # OS / editor cruft
 Thumbs.db
 ehthumbs.db
