@@ -177,6 +177,13 @@ section.block{padding:80px 0;position:relative}
 .btn-wa:hover{filter:brightness(1.07)}
 .contact small{display:block;margin-top:22px;color:var(--faint);font-family:'JetBrains Mono';font-size:12px;letter-spacing:.04em}
 
+/* ── recurso (lead magnet) ── */
+.magnet{display:flex;align-items:center;justify-content:space-between;gap:34px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:38px 40px}
+.magnet h2{font-size:clamp(1.35rem,2.6vw,1.7rem);margin:0 0 10px}
+.magnet p{color:var(--mute);margin:0;max-width:52ch}
+.magnet .mright{display:flex;flex-direction:column;align-items:flex-start;gap:10px;flex:none}
+.magnet small{color:var(--faint);font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.03em}
+
 /* ── footer ── */
 footer{border-top:1px solid var(--line-soft);padding:40px 0;margin-top:80px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;color:var(--faint);font-size:.88rem}
@@ -195,6 +202,7 @@ footer a:hover{color:var(--celeste)}
   .proj-grid{grid-template-columns:1fr}
   .about{grid-template-columns:1fr;gap:34px}
   .contact{padding:42px 24px}
+  .magnet{padding:30px 24px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 :focus-visible{outline:2px solid var(--celeste);outline-offset:3px;border-radius:6px}
@@ -539,12 +547,29 @@ footer a:hover{color:var(--celeste)}
   </div>
 </section>
 
+<!-- RECURSO -->
+<section class="block" id="recurso">
+  <div class="wrap">
+    <div class="magnet">
+      <div>
+        <div class="kicker"><b>05</b> · Recurso gratis</div>
+        <h2>Checklist de ciberseguridad para pymes</h2>
+        <p>Los 20 controles que reviso primero en cualquier empresa, en lenguaje claro. Marcá lo que ya tenés, detectá los huecos — sin dejar tu email.</p>
+      </div>
+      <div class="mright">
+        <a class="btn btn-ghost" href="/checklist-ciberseguridad-pymes/">Ver el checklist <span aria-hidden="true">→</span></a>
+        <small>Gratis · Sin registro · Imprimible como PDF</small>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACTO -->
 <section class="block" id="contacto">
   <div class="wrap">
     <div class="contact">
       <div class="inner">
-        <div class="kicker" style="justify-content:center"><b>05</b> · Hablemos</div>
+        <div class="kicker" style="justify-content:center"><b>06</b> · Hablemos</div>
         <h2>Contame qué necesita tu empresa</h2>
         <p>Primera conversación sin costo. Me decís tu problema, te digo si puedo resolverlo, cuánto cuesta y en cuánto tiempo. Sin vueltas.</p>
         <div class="contact-cta">
@@ -655,7 +680,7 @@ if(motionOK && 'IntersectionObserver' in window){
       el.style.setProperty('--d',(i*60)+'ms');
     });
   });
-  document.querySelectorAll('.sec-head').forEach(el=>el.classList.add('reveal'));
+  document.querySelectorAll('.sec-head,.magnet').forEach(el=>el.classList.add('reveal'));
   const io=new IntersectionObserver(entries=>entries.forEach(e=>{
     if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
   }),{rootMargin:'0px 0px -40px 0px',threshold:.1});

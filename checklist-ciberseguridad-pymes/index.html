@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Checklist de Ciberseguridad para Pymes (2026) · Gratis y sin registro | Técnicos UY</title>
+<meta name="description" content="Los 20 controles de ciberseguridad que toda pyme debería revisar: identidades, correo, dispositivos, respaldos y personas. En lenguaje claro, imprimible y sin dejar tu email.">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Juan Rodríguez">
+<link rel="canonical" href="https://tecnicosuy.com.uy/checklist-ciberseguridad-pymes/">
+<meta name="theme-color" content="#08131A">
+<meta property="og:title" content="Checklist de ciberseguridad para pymes · Técnicos UY">
+<meta property="og:description" content="20 controles esenciales en lenguaje claro. Marcá lo que ya tenés, detectá los huecos. Gratis, sin registro.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://tecnicosuy.com.uy/checklist-ciberseguridad-pymes/">
+<meta property="og:locale" content="es_UY">
+<meta property="og:site_name" content="Técnicos UY">
+<meta property="og:image" content="https://tecnicosuy.com.uy/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tecnicosuy.com.uy/og-image.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='7' fill='%23F4B740'/%3E%3Cg stroke='%2345C7E0' stroke-width='2' stroke-linecap='round'%3E%3Cline x1='20' y1='3' x2='20' y2='9'/%3E%3Cline x1='20' y1='31' x2='20' y2='37'/%3E%3Cline x1='3' y1='20' x2='9' y2='20'/%3E%3Cline x1='31' y1='20' x2='37' y2='20'/%3E%3Cline x1='8' y1='8' x2='12' y2='12'/%3E%3Cline x1='28' y1='28' x2='32' y2='32'/%3E%3Cline x1='32' y1='8' x2='28' y2='12'/%3E%3Cline x1='12' y1='28' x2='8' y2='32'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#08131A; --surface:#0F212C; --surface-2:#143040;
+  --line:#1C3744; --line-soft:#152A35;
+  --text:#EAF3F4; --mute:#8FA9B1; --faint:#5E7B85;
+  --celeste:#45C7E0; --sol:#F4B740; --ok:#46D9A0;
+  --ease-out:cubic-bezier(.23,1,.32,1);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:0 24px}
+h1,h2{font-family:'Sora',system-ui,sans-serif;line-height:1.12;letter-spacing:-.02em;margin:0}
+a{color:var(--celeste);text-decoration:none}
+
+nav{border-bottom:1px solid var(--line-soft);padding:18px 0}
+nav .wrap{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Sora';font-weight:600;color:var(--text)}
+.logo .uy{color:var(--celeste)}
+.sol{width:26px;height:26px;flex:none}
+
+header.top{padding:56px 0 8px}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--celeste);margin-bottom:14px}
+.kicker b{color:var(--sol);font-weight:500}
+h1{font-size:clamp(1.9rem,5vw,2.7rem)}
+.intro{color:var(--mute);margin:18px 0 0;max-width:62ch}
+.meta{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint);margin-top:18px;display:flex;flex-wrap:wrap;gap:8px 18px}
+.toolbar{margin-top:26px;display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+.btn{font-family:'Inter';font-weight:600;font-size:.95rem;border-radius:11px;padding:11px 18px;cursor:pointer;border:1px solid var(--line);background:transparent;color:var(--text);transition:transform .16s var(--ease-out),border-color .15s ease,color .15s ease;display:inline-flex;align-items:center;gap:9px}
+.btn:hover{border-color:var(--celeste);color:var(--celeste)}
+.btn:active{transform:scale(.97)}
+.score{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--mute)}
+.score b{color:var(--celeste);font-weight:500}
+
+main{padding:26px 0 60px}
+.grupo{margin-top:38px}
+.grupo h2{font-size:1.25rem;display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+.grupo h2 .n{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--sol);font-weight:500}
+.grupo .gd{color:var(--faint);font-size:.92rem;margin:0 0 16px}
+.item{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--line-soft);border-radius:12px;padding:15px 18px;margin-bottom:9px;cursor:pointer;transition:border-color .2s ease}
+.item:hover{border-color:var(--line)}
+.item input{appearance:none;width:20px;height:20px;flex:none;margin-top:2px;border:1.5px solid var(--faint);border-radius:6px;cursor:pointer;display:grid;place-items:center;transition:border-color .15s ease,background .15s ease;background:transparent}
+.item input:checked{background:var(--celeste);border-color:var(--celeste)}
+.item input:checked::before{content:"✓";font-size:13px;font-weight:700;color:#04121a}
+.item input:focus-visible{outline:2px solid var(--celeste);outline-offset:2px}
+.item .tt{font-weight:600;font-size:.98rem}
+.item .why{display:block;color:var(--mute);font-size:.9rem;margin-top:2px}
+.item:has(input:checked){border-color:var(--line)}
+.item:has(input:checked) .tt{color:var(--mute)}
+
+.cta{margin-top:52px;background:linear-gradient(160deg,var(--surface),var(--bg));border:1px solid var(--line);border-radius:18px;padding:34px 32px}
+.cta h2{font-size:1.45rem;margin-bottom:10px}
+.cta p{color:var(--mute);margin:0 0 20px;max-width:56ch}
+.btn-primary{background:var(--celeste);border-color:var(--celeste);color:#04121a}
+.btn-primary:hover{color:#04121a;filter:brightness(1.07)}
+
+footer{border-top:1px solid var(--line-soft);padding:28px 0;color:var(--faint);font-size:.86rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+
+:focus-visible{outline:2px solid var(--celeste);outline-offset:3px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+@media print{
+  body{background:#fff;color:#111}
+  nav,.toolbar,.cta,footer{display:none}
+  .kicker{color:#555}.kicker b{color:#555}
+  .intro,.meta,.grupo .gd{color:#444}
+  .item{border:1px solid #bbb;background:#fff;break-inside:avoid}
+  .item .tt{color:#111}.item .why{color:#555}
+  .item input{border-color:#777}
+  .item input:checked{background:#111;border-color:#111}
+  .grupo h2 .n{color:#555}
+  a{color:#111}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="/">
+      <svg class="sol" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="6.4" fill="#F4B740"/><g stroke="#45C7E0" stroke-width="1.6" stroke-linecap="round"><line x1="20" y1="3" x2="20" y2="9"/><line x1="20" y1="31" x2="20" y2="37"/><line x1="3" y1="20" x2="9" y2="20"/><line x1="31" y1="20" x2="37" y2="20"/><line x1="8" y1="8" x2="12.2" y2="12.2"/><line x1="27.8" y1="27.8" x2="32" y2="32"/><line x1="32" y1="8" x2="27.8" y2="12.2"/><line x1="12.2" y1="27.8" x2="8" y2="32"/></g></svg>
+      <span><b>Técnicos</b> <span class="uy">UY</span></span>
+    </a>
+    <a href="/#contacto">Contacto →</a>
+  </div>
+</nav>
+
+<header class="top">
+  <div class="wrap">
+    <div class="kicker">Recurso gratis · Sin registro</div>
+    <h1>Checklist de ciberseguridad para pymes</h1>
+    <p class="intro">Estos son los controles que reviso primero cuando una empresa me pide ayuda. No hace falta presupuesto corporativo: la mayoría se resuelve con configuración y hábitos, no comprando cajas. Marcá lo que ya tenés y vas a ver exactamente dónde están tus huecos.</p>
+    <div class="meta"><span>20 controles</span><span>·</span><span>~10 minutos</span><span>·</span><span>Actualizado julio 2026</span></div>
+    <div class="toolbar">
+      <button class="btn" id="printBtn">Imprimir / Guardar PDF</button>
+      <span class="score">Completados: <b id="done">0</b> / 20 <span id="saved"></span></span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="grupo">
+      <h2><span class="n">01</span> Identidades y accesos</h2>
+      <p class="gd">Por acá entran casi todos los ataques a pymes. Es lo primero que blindaría.</p>
+      <label class="item"><input type="checkbox" data-k="mfa"><span><span class="tt">MFA activado en todas las cuentas de la empresa</span><span class="why">Correo, banco, sistemas de gestión. El MFA frena la enorme mayoría de los robos de cuenta, incluso con la contraseña filtrada.</span></span></label>
+      <label class="item"><input type="checkbox" data-k="admin"><span><span class="tt">Las cuentas de administrador no se usan para el día a día</span><span class="why">Si el usuario con el que leés el correo puede administrar todo, un solo clic malo compromete toda la empresa.</span></span></label>
+      <label class="item"><input type="checkbox" data-k="pass"><span><span class="tt">Contraseñas únicas, idealmente con un gestor</span><span class="why">La contraseña repetida en 10 servicios cae cuando cae el más débil de los 10.</span></span></label>
+      <label class="item"><input type="checkbox" data-k="bajas"><span><span class="tt">Al desvincular a alguien, sus accesos se cortan el mismo día</span><span class="why">Cuentas de ex-empleados activas son una de las puertas de entrada más comunes (y más evitables).</span></span></label>
+    </section>
+
+    <section class="grupo">
+      <h2><span class="n">02</span> Correo</h2>
+      <p class="gd">El canal de ataque número uno contra empresas chicas.</p>
+      <label class="item"><input type="checkbox" data-k="spf"><span><span class="tt">SPF, DKIM y DMARC configurados en tu dominio</span><span class="why">Evitan que cualquiera mande correos haciéndose pasar por tu empresa — y mejoran la entrega de tus propios mails.</span></span></label>
+      <label class="item"><input type="checkbox" data-k="phish"><span><span class="tt">Tu equipo sabe reconocer un correo de phishing</span><span class="why">Una capacitación corta baja drásticamente los clics en enlaces maliciosos. Es la inversión con mejor retorno de esta lista.</span></span></label>
+      <label class="item"><input type="checkbox" data-k="reglas"><span><span class="tt">Revisás si hay reglas de reenvío raras en los buzones</span><span class="why">Cuando roban una cuenta, lo primero que hacen es crear una regla silenciosa que reenvía todo afuera.</span></span></label>
+      <label class="item"><input type="checkbox" data-k="pagos"><span><span class="tt">Los cambios de cuenta bancaria de proveedores se verifican por otro canal</span><span class="why">El "fraude del CEO" empieza con un mail creíble pidiendo cambiar una cuenta de depósito. Una llamada lo desarma.</span></span></label>
+    </section>
+
+    <section class="grupo">
+      <h2><span class="n">03</span> Dispositivos</h2>
+      <p class="gd">Cada computadora y celular de la empresa es una puerta.</p>
+      <label class="item"><input type="checkbox" data-k="updates"><span><span class="tt">Actualizaciones automáticas activadas en todos los equipos</span><span class="why">La mayoría de los ataques explota vulnerabilidades que ya tenían parche disponible.</span></span></label>
+      <label class="item"><input type="checkbox" data-k="av"><span><span class="tt">Antivirus/EDR activo y monitoreado en todos los equipos</span><span class="why">El Defender que viene con Windows bien configurado ya es muy bueno — el problema es cuando está apagado y nadie lo sabe.</span></span></label>
+      <label class="item"><input type="checkbox" data-k="cifrado"><span><span class="tt">Discos cifrados (BitLocker) en laptops</span><span class="why">Una laptop robada sin cifrar = todos sus archivos legibles para cualquiera.</span></span></label>
+      <label class="item"><input type="checkbox" data-k="bloqueo"><span><span class="tt">Bloqueo de pantalla automático y PIN/biometría en celulares</span><span class="why">El correo de la empresa vive en esos teléfonos.</span></span></label>
+    </section>
+
+    <section class="grupo">
+      <h2><span class="n">04</span> Respaldos</h2>
+      <p class="gd">Tu seguro contra ransomware, errores humanos y hardware que muere.</p>
+      <label class="item"><input type="checkbox" data-k="321"><span><span class="tt">Respaldo con regla 3-2-1: tres copias, dos medios, una fuera de la oficina</span><span class="why">Un respaldo en el mismo disco (o la misma oficina) que los originales no es un respaldo.</span></span></label>
+      <label class="item"><input type="checkbox" data-k="restore"><span><span class="tt">Probaste restaurar archivos en los últimos 6 meses</span><span class="why">El respaldo que nunca se probó restaurar es una esperanza, no un plan.</span></span></label>
+      <label class="item"><input type="checkbox" data-k="offline"><span><span class="tt">Al menos una copia desconectada o inmutable</span><span class="why">El ransomware moderno busca y cifra también los respaldos conectados en red.</span></span></label>
+      <label class="item"><input type="checkbox" data-k="m365bk"><span><span class="tt">Sabés que Microsoft 365 / Google Workspace no respaldan por vos</span><span class="why">La papelera tiene límite de días. Un borrado malicioso o accidental puede ser permanente sin respaldo propio.</span></span></label>
+    </section>
+
+    <section class="grupo">
+      <h2><span class="n">05</span> Personas y plan</h2>
+      <p class="gd">La tecnología sola no alcanza: los procesos salvan cuando algo falla.</p>
+      <label class="item"><input type="checkbox" data-k="inventario"><span><span class="tt">Tenés un inventario de equipos, cuentas y sistemas</span><span class="why">No podés proteger lo que no sabés que existe. Una planilla simple ya cambia el juego.</span></span></label>
+      <label class="item"><input type="checkbox" data-k="wifi"><span><span class="tt">Wi-Fi de invitados separada de la red de la empresa</span><span class="why">El celular de un visitante no tiene por qué ver tu servidor o tus carpetas compartidas.</span></span></label>
+      <label class="item"><input type="checkbox" data-k="permisos"><span><span class="tt">Cada persona accede solo a las carpetas que necesita</span><span class="why">Si toda la empresa ve todo, cualquier cuenta robada expone todo.</span></span></label>
+      <label class="item"><input type="checkbox" data-k="plan"><span><span class="tt">Sabés a quién llamar si mañana amanecés cifrado</span><span class="why">Un plan de incidentes de una página — a quién avisar, qué apagar, dónde están los respaldos — vale oro a las 7 de la mañana de un lunes.</span></span></label>
+    </section>
+
+    <div class="cta">
+      <h2>¿Marcaste menos de 15?</h2>
+      <p>Es lo normal — la mayoría de las pymes arranca ahí. La buena noticia: casi todo lo de esta lista se resuelve en semanas, no meses. Contame qué te dio el checklist y te digo por dónde empezar, sin costo y sin compromiso.</p>
+      <a class="btn btn-primary" href="/#contacto">Hablemos de tu resultado →</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Técnicos UY · Juan Rodríguez</span>
+    <a href="/">← Volver a tecnicosuy.com.uy</a>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+document.getElementById('printBtn').addEventListener('click',()=>window.print());
+
+/* progreso persistente en el navegador (localStorage, sin cookies ni tracking) */
+const KEY='tuy-checklist-v1';
+const boxes=[...document.querySelectorAll('.item input')];
+const done=document.getElementById('done');
+let saved={};
+try{ saved=JSON.parse(localStorage.getItem(KEY))||{}; }catch(e){}
+boxes.forEach(b=>{
+  if(saved[b.dataset.k]) b.checked=true;
+  b.addEventListener('change',()=>{
+    saved[b.dataset.k]=b.checked;
+    try{ localStorage.setItem(KEY,JSON.stringify(saved)); }catch(e){}
+    update();
+  });
+});
+function update(){
+  const n=boxes.filter(b=>b.checked).length;
+  done.textContent=n;
+  document.getElementById('saved').textContent=n?' · guardado en tu navegador':'';
+}
+update();
+</script>
+</body>
+</html>
