@@ -141,6 +141,7 @@ section.block{padding:80px 0;position:relative}
 
 /* ── about ── */
 .about{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:start}
+.about>div{min-width:0}
 .about h2{font-size:clamp(1.7rem,3.4vw,2.3rem);margin-bottom:18px}
 .about p{color:var(--mute);font-size:1.04rem;margin:0 0 16px}
 .about .name{color:var(--text);font-weight:600}
@@ -221,6 +222,23 @@ footer a:hover{color:var(--celeste)}
 
 /* flecha anidada del CTA primario (button-in-button) */
 .bic{width:26px;height:26px;border-radius:50%;background:rgba(4,18,26,.16);display:grid;place-items:center;font-size:.85rem;margin-right:-6px;transition:transform .2s var(--ease-out)}
+
+/* marquee del stack técnico (JS lo construye; sin JS quedan los chips estáticos) */
+.mq{overflow:hidden;display:flex;flex-direction:column;gap:8px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.mq-track{display:flex;width:max-content;animation:mq-scroll var(--mqd,36s) linear infinite}
+.mq-track.rev{animation-direction:reverse}
+.mq:hover .mq-track{animation-play-state:paused}
+@keyframes mq-scroll{to{transform:translateX(-50%)}}
+.mq-grp{display:flex;gap:8px;padding-right:8px}
+.mq .chip{flex:none;opacity:.55;transition:opacity .25s ease,border-color .25s ease,color .25s ease;cursor:default}
+.mq .chip:hover{opacity:1;border-color:var(--celeste);color:var(--text)}
+
+/* punto de disponibilidad con pulso */
+.ping{position:relative;display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ok);margin-right:9px;vertical-align:1px}
+.ping::before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--ok);animation:ping-wave 1.9s cubic-bezier(0,0,.2,1) infinite}
+@keyframes ping-wave{to{transform:scale(2.6);opacity:0}}
 
 /* press feedback — todo lo presionable responde al tacto */
 .btn:active,.nav-cta:active{transform:scale(.97)}
@@ -536,7 +554,7 @@ footer a:hover{color:var(--celeste)}
           </a>
           <a class="btn btn-ghost" id="mailBtn" href="#">Enviar un email</a>
         </div>
-        <small id="locLine">Disponible en remoto · Respuesta el mismo día hábil</small>
+        <small><span class="ping" aria-hidden="true"></span><span id="locLine">Disponible en remoto · Respuesta el mismo día hábil</span></small>
       </div>
     </div>
   </div>
@@ -674,6 +692,34 @@ if(matchMedia('(hover:hover) and (pointer:fine)').matches){
       c.style.setProperty('--my',(e.clientY-r.top)+'px');
     },{passive:true});
   });
+}
+
+/* ── marquee del stack: dos filas en contra-dirección (concepto sperea.es) ── */
+if(motionOK){
+  const chipsBox=document.querySelector('.chips');
+  if(chipsBox){
+    const items=[...chipsBox.children];
+    const half=Math.ceil(items.length/2);
+    const mq=document.createElement('div'); mq.className='mq';
+    [items.slice(0,half),items.slice(half)].forEach((row,ri)=>{
+      if(!row.length) return;
+      const track=document.createElement('div'); track.className='mq-track'+(ri?' rev':'');
+      for(let c=0;c<2;c++){
+        const grp=document.createElement('div'); grp.className='mq-grp';
+        if(c) grp.setAttribute('aria-hidden','true');
+        row.forEach(ch=>grp.appendChild(c?ch.cloneNode(true):ch));
+        track.appendChild(grp);
+      }
+      mq.appendChild(track);
+    });
+    chipsBox.replaceWith(mq);
+    /* velocidad constante (~45 px/s) sin importar el ancho de cada fila */
+    requestAnimationFrame(()=>{
+      mq.querySelectorAll('.mq-track').forEach(t=>{
+        t.style.setProperty('--mqd',Math.max(14,Math.round(t.scrollWidth/2/45))+'s');
+      });
+    });
+  }
 }
 
 /* ── scroll-spy: la sección visible se marca en el nav ── */
