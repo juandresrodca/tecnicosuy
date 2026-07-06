@@ -154,7 +154,12 @@ section.block{padding:80px 0;position:relative}
 .stack{margin-top:26px}
 .stack .sl{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:13px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mute);background:var(--bg-2);border:1px solid var(--line-soft);border-radius:8px;padding:6px 11px}
+.chip{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mute);background:var(--bg-2);border:1px solid var(--line-soft);border-radius:8px;padding:6px 11px;display:inline-flex;align-items:center;gap:7px}
+.chip img{display:block;filter:grayscale(1);opacity:.7}
+@media (hover:hover) and (pointer:fine){
+  .chip img{transition:filter .25s ease,opacity .25s ease}
+  .chip:hover img{filter:grayscale(0);opacity:1}
+}
 
 /* ── faq ── */
 .faq-list{max-width:820px}
@@ -491,11 +496,19 @@ footer a:hover{color:var(--celeste)}
         <div class="stack">
           <div class="sl">Stack técnico</div>
           <div class="chips">
-            <span class="chip">Microsoft 365</span><span class="chip">Entra ID</span><span class="chip">Azure</span>
-            <span class="chip">Intune</span><span class="chip">Defender XDR</span><span class="chip">KQL</span>
-            <span class="chip">Active Directory</span><span class="chip">Windows Server</span>
-            <span class="chip">PowerShell</span><span class="chip">Python</span><span class="chip">C# / .NET</span>
-            <span class="chip">SQLite</span>
+            <span class="chip"><img src="img/stack/microsoft-365.svg" alt="" width="15" height="15" loading="lazy">Microsoft 365</span>
+            <span class="chip"><img src="img/stack/entra-id.svg" alt="" width="15" height="15" loading="lazy">Entra ID</span>
+            <span class="chip"><img src="img/stack/azure.svg" alt="" width="15" height="15" loading="lazy">Azure</span>
+            <span class="chip"><img src="img/stack/intune.svg" alt="" width="15" height="15" loading="lazy">Intune</span>
+            <span class="chip"><img src="img/stack/defender-xdr.svg" alt="" width="15" height="15" loading="lazy">Defender XDR</span>
+            <span class="chip"><img src="img/stack/kql.svg" alt="" width="15" height="15" loading="lazy">KQL</span>
+            <span class="chip"><img src="img/stack/active-directory.svg" alt="" width="15" height="15" loading="lazy">Active Directory</span>
+            <span class="chip"><img src="img/stack/windows-server.svg" alt="" width="15" height="15" loading="lazy">Windows Server</span>
+            <span class="chip"><img src="img/stack/powershell.svg" alt="" width="15" height="15" loading="lazy">PowerShell</span>
+            <span class="chip"><img src="img/stack/python.svg" alt="" width="15" height="15" loading="lazy">Python</span>
+            <span class="chip"><img src="img/stack/csharp.svg" alt="" width="15" height="15" loading="lazy">C#</span>
+            <span class="chip"><img src="img/stack/dotnet.svg" alt="" width="15" height="15" loading="lazy">.NET</span>
+            <span class="chip"><img src="img/stack/sqlite.svg" alt="" width="15" height="15" loading="lazy">SQLite</span>
           </div>
         </div>
       </div>

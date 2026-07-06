@@ -1,6 +1,8 @@
 # Claude Code local session config — no versionar
 .claude/
 CLAUDE.md
+PLAN-NEGOCIO.md
+_skill-preview/
 
 # Tooling de skills (npx skills) — no versionar
 .agents/
