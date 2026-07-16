@@ -138,6 +138,13 @@ section.block{padding:80px 0;position:relative}
 .proj-foot{margin-top:28px;text-align:center}
 .proj-foot a{color:var(--celeste);font-weight:500;font-size:.95rem;border-bottom:1px solid transparent;transition:border-color .15s ease}
 .proj-foot a:hover{border-color:var(--celeste)}
+/* proyecto destacado: único con demo en vivo, ocupa la fila completa */
+.proj.featured{grid-column:1/-1;border-color:var(--line)}
+.proj.featured .live{display:inline-flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--celeste);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+.proj.featured .live .dot{width:7px;height:7px;border-radius:50%;background:var(--celeste);flex:none}
+.proj-links{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:16px}
+.proj-links a{font-size:.85rem;color:var(--celeste);font-family:'JetBrains Mono';border-bottom:1px solid transparent;transition:border-color .15s ease}
+.proj-links a:hover{border-color:var(--celeste)}
 
 /* ── about ── */
 .about{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:start}
@@ -626,6 +633,10 @@ const CFG = {
 
 /* Proyectos reales (de github.com/juandresrodca) */
 const PROJECTS = [
+  { name:"Enterprise-Onboarding-Platform", lang:"Python · PowerShell · Astro",
+    desc:"Plataforma web para dar de alta usuarios en Active Directory y Microsoft Entra ID: creación individual o masiva (CSV/Excel), clonado de perfiles, validación con vista previa aprobable, ejecución con progreso en vivo y auditoría exportable. Interfaz en español e inglés, con demo pública sobre datos ficticios.",
+    url:"https://github.com/juandresrodca/Enterprise-Onboarding-Platform",
+    demo:"https://juandresrodca.github.io/Enterprise-Onboarding-Platform/" },
   { name:"InventoryIQ", lang:"Python",
     desc:"Agente de Microsoft 365 Copilot para inventario de activos IT y razonamiento sobre datacenter.",
     url:"https://github.com/juandresrodca/InventoryIQ" },
@@ -649,6 +660,23 @@ const PROJECTS = [
 /* ── render projects ── */
 const grid=document.getElementById('projGrid');
 PROJECTS.forEach(p=>{
+  if(p.demo){ // tarjeta destacada: dos enlaces (demo + código), por eso es un div y no un <a>
+    const d=document.createElement('div');
+    d.className='proj featured';
+    d.innerHTML=`
+      <div class="ptop">
+        <span class="lang">${p.lang}</span>
+        <span class="live"><span class="dot"></span>Demo en vivo</span>
+      </div>
+      <h3>${p.name}</h3>
+      <p>${p.desc}</p>
+      <div class="proj-links">
+        <a href="${p.demo}" target="_blank" rel="noopener noreferrer">Probar la demo en vivo →</a>
+        <a href="${p.url}" target="_blank" rel="noopener noreferrer">Ver código en GitHub →</a>
+      </div>`;
+    grid.appendChild(d);
+    return;
+  }
   const a=document.createElement('a');
   a.className='proj'; a.href=p.url; a.target="_blank"; a.rel="noopener noreferrer";
   a.innerHTML=`
